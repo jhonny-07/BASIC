@@ -87,7 +87,7 @@ Você também pode ver a lista de todos os colaboradores que participaram deste 
 
 📄 Licença
 
-"Este projeto está sob a licença":  ("sua-licença") - veja o arquivo LICENSE.md 
+"Este projeto está sob a licença":  ("Mozilla Public License Version 2.0") - veja o arquivo LICENSE.md 
 
 para detalhes:
 
