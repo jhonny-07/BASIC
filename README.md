@@ -12,8 +12,7 @@ Revisões:()
 Estrelas:()
 Garfos:  ()
 
-Um modelo para fazer um bom README.md
-README.md
+Um modelo para fazer um bom arquivo "README.md"
 
 Título do projeto:
 Um parágrafo da descrição do projeto:
