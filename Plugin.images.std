@@ -1,4 +1,4 @@
-[ #1](url), [#2](url), [#3](url), [#4](url), [#5](url), [#6](url), [#7](url)
+[#1,#2,#3,#4,#5,#6,#7]
 
 #include <filename>
 #include "filename"
@@ -274,4 +274,3 @@ int main()
         break;
      }
   }
-](Url);
