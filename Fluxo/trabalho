@@ -27,9 +27,10 @@ on.workflow_dispatch.inputs.<input_id>.type
 permissions
 env
 defaults
-defaults.run
-concurrency
-jobs
+
+<defaults.run>
+jobs.<>=
+</defaults.run>
 jobs.<job_id>
 jobs.<job_id>.name
 jobs.<job_id>.permissions
@@ -72,7 +73,10 @@ jobs.<job_id>.container.ports
 jobs.<job_id>.container.volumes
 jobs.<job_id>.container.options
 jobs.<job_id>.services
-Example: Using localhost
+</defaults.run>
+
+Example: Using localhost:
+<defaults.run>
 jobs.<job_id>.services.<service_id>.image
 jobs.<job_id>.services.<service_id>.credentials
 jobs.<job_id>.services.<service_id>.env
@@ -85,4 +89,5 @@ jobs.<job_id>.with.<input_id>
 jobs.<job_id>.secrets
 jobs.<job_id>.secrets.inherit
 jobs.<job_id>.secrets.<secret_id>
-Filter pattern cheat sheet
+<defaults.run/>
+Filter cheat sheet.
