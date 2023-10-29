@@ -1,0 +1,33 @@
+Configuração:
+Pré-requisitos
+Você instalou um mecanismo de contêiner suportado (Docker, Containerd, CRI-O, Podman).
+
+Você instalou o NVIDIA Container Toolkit.
+
+Configurando o Docker
+Configure o tempo de execução do contêiner usando o comando:nvidia-ctk
+
+sudo nvidia-ctk runtime configure --runtime=docker
+O comando modifica o arquivo no host. O arquivo é atualizado para que o Docker possa usar o NVIDIA Container Runtime.nvidia-ctk/etc/docker/daemon.json
+
+Reinicie o daemon do Docker:
+
+sudo systemctl restart docker
+Configurando contêineres
+Configure o tempo de execução do contêiner usando o comando:nvidia-ctk
+
+sudo nvidia-ctk runtime configure --runtime=containerd
+O comando modifica o arquivo no host. O arquivo é atualizado para que o contêiner possa usar o NVIDIA Container Runtime.nvidia-ctk/etc/containerd/config.toml
+
+Reinicie em contêiner:
+
+sudo systemctl restart containerd
+Configurando o CRI-O
+Configure o tempo de execução do contêiner usando o comando:nvidia-ctk
+
+sudo nvidia-ctk runtime configure --runtime=crio
+O comando modifica o arquivo no host. O arquivo é atualizado para que o CRI-O possa usar o NVIDIA Container Runtime.nvidia-ctk/etc/crio/crio.conf
+
+Reinicie o daemon CRI-O:
+
+sudo systemctl restart crio
