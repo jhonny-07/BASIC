@@ -1,0 +1,112 @@
+Logotipo
+Pesquisar documentos
+KIT DE FERRAMENTAS DE CONTÊINER NVIDIA
+
+Visão geral
+Instalando o Toolkit
+Executando uma carga de trabalho de exemplo
+Plataformas suportadas
+Solucionando problemas
+Notas de versão
+CONFIGURAÇÃO AVANÇADA
+
+Visão geral da arquitetura
+Interface de dispositivo de contêiner
+Configurações especializadas com o Docker
+kit de ferramentas de contêiner 
+1.14.3
+Kit de ferramentas de contêiner NVIDIA
+Hub de documentos NVIDIA  Tecnologias nativas da nuvem NVIDIA  Instalando o NVIDIA Container Toolkit
+Instalando o NVIDIA Container Toolkit
+Instalação
+
+Instalando com o Apt
+
+Instalando com Yum ou Dnf
+
+Instalando com o Zypper
+
+Configuração
+
+Pré-requisitos
+
+Configurando o Docker
+
+Configurando contêineres
+
+Configurando o CRI-O
+
+Configurando o Podman
+
+Próximos passos
+
+Instalação
+Instalando com o Apt
+Configure o repositório:
+
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list \
+  && \
+    sudo apt-get update
+Instale os pacotes do NVIDIA Container Toolkit:
+
+sudo apt-get install -y nvidia-container-toolkit
+Instalando com Yum ou Dnf
+Configure o repositório:
+
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo | \
+  sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
+Instale os pacotes do NVIDIA Container Toolkit:
+
+sudo yum install -y nvidia-container-toolkit
+Instalando com o Zypper
+Configure o repositório:
+
+sudo zypper ar https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo
+Instale os pacotes do NVIDIA Container Toolkit:
+
+sudo zypper --gpg-auto-import-keys install -y nvidia-container-toolkit
+Configuração
+Pré-requisitos
+Você instalou um mecanismo de contêiner suportado (Docker, Containerd, CRI-O, Podman).
+
+Você instalou o NVIDIA Container Toolkit.
+
+Configurando o Docker
+Configure o tempo de execução do contêiner usando o comando:nvidia-ctk
+
+sudo nvidia-ctk runtime configure --runtime=docker
+O comando modifica o arquivo no host. O arquivo é atualizado para que o Docker possa usar o NVIDIA Container Runtime.nvidia-ctk/etc/docker/daemon.json
+
+Reinicie o daemon do Docker:
+
+sudo systemctl restart docker
+Configuring containerd
+Configure the container runtime by using the command:nvidia-ctk
+
+sudo nvidia-ctk runtime configure --runtime=containerd
+The command modifies the file on the host. The file is updated so that containerd can use the NVIDIA Container Runtime.nvidia-ctk/etc/containerd/config.toml
+
+Restart containerd:
+
+sudo systemctl restart containerd
+Configuring CRI-O
+Configure the container runtime by using the command:nvidia-ctk
+
+sudo nvidia-ctk runtime configure --runtime=crio
+O comando modifica o arquivo no host. O arquivo é atualizado para que o CRI-O possa usar o NVIDIA Container Runtime.nvidia-ctk/etc/crio/crio.conf
+
+Reinicie o daemon CRI-O:
+
+sudo systemctl restart crio
+Configurando o Podman
+Para o Podman, a NVIDIA recomenda o uso de CDI para acessar dispositivos NVIDIA em contêineres.
+
+Próximos passos
+Instale um driver de GPU NVIDIA se você ainda não tiver um instalado. Você pode instalar um driver usando o gerenciador de pacotes para sua distribuição, mas outra instalação métodos, como baixar um arquivo intaller, estão disponíveis. Consulte o Guia de início rápido de instalação do driver NVIDIA para obter mais informações..run
+
+Executando uma carga de trabalho de exemplo
+
+© Direitos autorais 2020-2023, NVIDIA. Última atualização em 20 de outubro de 2023.
