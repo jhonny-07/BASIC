@@ -1,3 +1,5 @@
+<!DockerType html>
+<HTML>
 Logotipo
 Pesquisar documentos
 KIT DE FERRAMENTAS DE CONTÊINER NVIDIA
@@ -110,3 +112,5 @@ Instale um driver de GPU NVIDIA se você ainda não tiver um instalado. Você po
 Executando uma carga de trabalho de exemplo
 
 © Direitos autorais 2020-2023, NVIDIA. Última atualização em 20 de outubro de 2023.
+
+<HTML/>
