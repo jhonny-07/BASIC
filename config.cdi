@@ -1,0 +1,10 @@
+Configurando o Podman
+Para o Podman, a NVIDIA recomenda o uso de CDI para acessar dispositivos NVIDIA em contêineres.
+-
+Pré-requisitos
+Você instalou o NVIDIA Container Toolkit ou instalou o pacote. O pacote base inclui o tempo de execução do contêiner e a interface de linha de comando, mas evita Instalando o gancho de tempo de execução do contêiner e as dependências transitivas. O gancho e as dependências não são necessários em máquinas que usam CDI exclusivamente.
+
+nvidia-container-toolkit-basenvidia-ctk
+
+Você instalou um driver de GPU NVIDIA.
+
