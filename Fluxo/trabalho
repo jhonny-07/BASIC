@@ -1,3 +1,4 @@
+<html>
 # -App-importe
 GitHub Docs
 GitHub Actions/Usando fluxos de trabalho/Sintaxe de fluxo de trabalho
@@ -31,7 +32,7 @@ defaults
 <defaults.run>
 jobs.<>=
 </defaults.run>
-jobs.<job_id>
+jobs.<job_id> = <html> 
 jobs.<job_id>.name
 jobs.<job_id>.permissions
 jobs.<job_id>.needs
@@ -75,8 +76,12 @@ jobs.<job_id>.container.options
 jobs.<job_id>.services
 </defaults.run>
 
+[https://btsbrasil.tv/esports/ #7](url)
+   <html> 
+
 Example: Using localhost:
-<defaults.run>
+   <defaults.run>
+
 jobs.<job_id>.services.<service_id>.image
 jobs.<job_id>.services.<service_id>.credentials
 jobs.<job_id>.services.<service_id>.env
@@ -89,5 +94,10 @@ jobs.<job_id>.with.<input_id>
 jobs.<job_id>.secrets
 jobs.<job_id>.secrets.inherit
 jobs.<job_id>.secrets.<secret_id>
-<defaults.run/>
+
+[https://btsbrasil.tv/esports/ #7](url)
+   <html>
+
 Filter cheat sheet.
+<defaults.run/>
+<html/>
