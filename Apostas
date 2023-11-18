@@ -1,0 +1,137 @@
+Casa
+API
+Protocolo
+Esquema
+TDLib
+Página Principal
++Classes
++Limas
+
+Search
+TDLib
+TDLib (Telegram Database library) é uma biblioteca multiplataforma para a construção de clientes Telegram. Ele pode ser facilmente usado a partir de quase qualquer linguagem de programação.
+
+Índice
+Características
+Exemplos e documentação
+Dependências
+Edifício
+Usando em projetos CMake C++
+Usando em projetos Java
+Usando em projetos .NET
+Usando com outras linguagens de programação
+Licença
+
+Características
+TDLib tem muitas vantagens. Notadamente é:TDLib
+
+Multiplataforma: pode ser usado em Android, iOS, Windows, macOS, Linux, FreeBSD, OpenBSD, NetBSD, illumos, Windows Phone, WebAssembly, watchOS, tvOS, Tizen, Cygwin. Ele também deve funcionar em outros sistemas *nix com ou sem esforço mínimo.TDLib
+Multilinguagem: pode ser facilmente usada com qualquer linguagem de programação que seja capaz de executar funções C. Além disso, ele já tem ligações Java nativas (usando ) e .NET (usando e ).TDLibJNIC++/CLIC++/CX
+Fácil de usar: cuida de todos os detalhes de implementação de rede, criptografia e armazenamento de dados local.TDLib
+Alto desempenho: na API do Telegram Bot, cada instância lida com mais de 24000 bots ativos simultaneamente.TDLib
+Bem documentado: todos os métodos de API e interfaces públicas estão totalmente documentados.TDLib
+Consistente: garante que todas as atualizações sejam entregues na ordem correta.TDLib
+Confiável: permanece estável em conexões de Internet lentas e não confiáveis.TDLib
+Seguro: todos os dados locais são criptografados usando uma chave de criptografia fornecida pelo usuário.
+Totalmente assíncrono: solicitações para não bloquear umas às outras ou qualquer outra coisa, as respostas são enviadas quando estão disponíveis.TDLib
+
+Exemplos e documentação
+Consulte nosso tutorial de Introdução para obter uma descrição dos conceitos básicos de TDLib.
+
+Veja nossos exemplos.
+
+Consulte um gerador de instruções de compilação TDLib para obter instruções detalhadas sobre como criar TDLib.
+
+Consulte a descrição de nossas interfaces JSON, C++, Java e .NET.
+
+Consulte o esquema td_api.tl ou a documentação HTML gerada automaticamente para obter uma lista de todos os métodos e classes disponíveis.TDLib
+
+
+Dependências
+TDLib Depende:
+
+Compilador compatível com C++14 (Clang 3.4+, GCC 4.9+, MSVC 19.0+ (Visual Studio 2015+), Intel C++ Compiler 17+)
+OpenSSL
+Zlib
+GPERF (somente compilação)
+CMake (3.0.2+, somente compilação)
+PHP (opcional, para geração de documentação)
+
+Edifício
+A maneira mais simples de construir é usar nosso gerador de instruções de compilação TDLib. Você só precisa escolher sua linguagem de programação e sistema operacional de destino para receber instruções de compilação completas.TDLib
+
+Em geral, você precisa instalar todas as dependências, inserir diretório contendo códigos-fonte e compilá-los usando o CMake:TDLibTDLib
+
+mkdir construir
+Compilação em CD
+cmake -DCMAKE_BUILD_TYPE=Lançamento ..
+cmake --construir .
+Para construir em dispositivos com pouca memória, você pode executar o script SplitSource.php antes de compilar o código-fonte principal e compilar apenas os destinos necessários: TDLibTDLib
+
+mkdir construir
+Compilação em CD
+cmake -DCMAKE_BUILD_TYPE=Lançamento ..
+cmake --construir . --prepare_cross_compiling alvo
+CD..
+php SplitSource.php
+Compilação em CD
+cmake --construir . --Alvo TDJSON
+cmake --construir . --tdjson_static alvo
+CD..
+php SplitSource.php --desfazer
+Em nossos testes, o clang 6.0 com libc++ exigiu menos de 500 MB de RAM por arquivo e o GCC 4.9/6.3 usou menos de 1 GB de RAM por arquivo.
+
+
+Usando em projetos CMake C++
+Para projetos C++ que usam o CMake, a melhor abordagem é compilar como parte do projeto ou instalá-lo em todo o sistema.TDLib
+
+Existem várias bibliotecas que você pode usar em seu projeto CMake:
+
+Td::TdJson, Td::TdJsonStatic — versão dinâmica e estática de uma interface JSON. Este tem uma interface C simples, por isso pode ser facilmente usado com qualquer linguagem de programação que seja capaz de executar funções C. Consulte td_json_client documentação para obter mais informações.
+Td::TdStatic — biblioteca estática com interface C++ para uso geral. Consulte a documentação do ClientManager e do Client para obter mais informações.
+Por exemplo, parte de seus CMakeLists.txt pode ter esta aparência:
+
+add_subdirectory(TD)
+target_link_libraries(YourTarget PRIVATE Td::TdStatic)
+Ou você pode instalar e depois fazer referência a ele em seu CMakeLists.txt assim: TDLib
+
+find_package(Td 1.8.0 OBRIGATÓRIO)
+target_link_libraries(YourTarget PRIVATE Td::TdStatic)
+Consulte exemplo/cpp/CMakeLists.txt.
+
+
+Usando em projetos Java
+TDLib fornece interface Java nativa através de JNI. Para habilitá-lo, especifique a opção para CMake.-DTD_ENABLE_JNI=ON
+
+Veja exemplo/java para exemplo de uso de Java e instruções detalhadas de construção e uso.TDLib
+
+
+Usando em projetos .NET
+TDLib fornece interface .NET nativa através de e . Para habilitá-lo, especifique a opção para CMake. O .NET Core oferece suporte somente desde a versão 3.1 e somente no Windows, portanto, se o .NET Core mais antigo for usado ou a portabilidade for necessária, a interface JSON deverá ser usada por meio de P/Invoke.C++/CLIC++/CX-DTD_ENABLE_DOTNET=ONC++/CLITDLib
+
+Veja exemplo/csharp para exemplo de uso de C# e instruções detalhadas de compilação e uso. Consulte exemplo/uwp para obter um exemplo de uso do aplicativo UWP em C# e instruções detalhadas de compilação e uso para a extensão do Visual Studio "TDLib para plataforma universal do Windows".TDLibTDLib
+
+Quando é criado com a opção ativada, a documentação é removida de alguns arquivos. Você precisa fazer check-out desses arquivos para retornar a documentação de volta: TDLibTD_ENABLE_DOTNETC++C++
+
+git checkout td/telegram/Client.h td/telegram/Log.h td/tl/TlObject.h
+
+Usando de outras linguagens de programação
+TDLib fornece interfaces C++, Java e .NET nativas eficientes. Mas para a maioria dos casos de uso sugerimos usar a interface JSON, que pode ser facilmente usada com qualquer linguagem de programação que seja capaz de executar funções C. Consulte td_json_client documentação para obter uma descrição detalhada da interface JSON, o esquema td_api.tl ou a documentação HTML gerada automaticamente para obter uma lista de todos os métodos e classes disponíveis.TDLib
+
+TDLib A interface JSON adere ao controle de versão semântico e as versões com o mesmo número de versão principal são binárias e compatíveis com versões anteriores, mas a API subjacente pode ser diferente para diferentes versões secundárias e até mesmo de patch. Se você precisar oferecer suporte a versões diferentes, poderá usar um valor da opção para localizar a versão exata para usar os métodos de API apropriados.TDLibTDLibversionTDLib
+
+Veja exemplo/python/tdjson_example.py para um exemplo de tal uso.
+
+
+Licença
+TDLib é licenciado sob os termos da Licença de Software Boost. Consulte LICENSE_1_0.txt para obter mais informações.
+
+SOBRE
+ 
+BLOGUE
+ 
+APPS
+ 
+PLATAFORMA
+ 
+GORJEIO
